@@ -1,0 +1,5 @@
+/*5)	Display the Supplier details who can supply more than one product. */
+SELECT S.SUPP_ID,S.SUPP_NAME,S.SUPP_CITY,S.SUPP_PHONE FROM SUPPLIER S INNER JOIN
+(SELECT DISTINCT COUNT(PRO_ID),SUPP_ID FROM Supplier_pricing GROUP BY SUPP_ID HAVING COUNT(PRO_ID)>1 )
+ AS M ON S.SUPP_ID=M.SUPP_ID;
+  
